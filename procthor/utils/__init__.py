@@ -1,6 +1,7 @@
 from typing import Tuple, Union, Dict
 
 from ai2thor.controller import Controller
+import json
 
 
 class DebugController(Controller):
@@ -43,3 +44,8 @@ def is_equal(
         return True
     else:
         raise Exception(f"Unknown types for point0={point0}, point1={point1}")
+
+def load_scene_json_file(scene_json_file_path: str) -> Dict:
+    with open(scene_json_file_path, encoding='utf-8-sig') \
+            as config_json_file_object:
+        return json.load(config_json_file_object)
